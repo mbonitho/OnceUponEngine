@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<Tableau name="magiland_splash" game="false">
+    <Sprite name="logo" texture="magiland/logoOUE.png" x="114" y="114" opacity="0f" steps="1"/>
+
+    <Event id="1" type="PlaySoundEffectEvent" additionalData="global/logo.ogg;2f" trigger="auto"/>
+    <Event id="2" type="FadeInEvent" additionalData="logo;0.003f" trigger="auto">
+        <!--<Condition type="EventHasRunCondition" additionalData="1"/>-->
+    </Event>
+<!--    <Event id="3" type="WaitEvent" additionalData="500" trigger="auto">
+        <Condition type="EventHasRunCondition" additionalData="1"/>
+    </Event>-->
+    <Event id="4" type="FadeOutEvent" additionalData="logo;0.003f"  trigger="auto">
+        <Condition type="EventHasRunCondition" additionalData="2"/>
+    </Event>
+    <Event id="5" type="TransitionEvent" additionalData="magiland_menu"  trigger="auto">
+        <Condition type="EventHasRunCondition" additionalData="4"/>
+    </Event>
+</Tableau>

@@ -1,0 +1,80 @@
+<?xml version="1.0"?>
+<Tableau name="magiland" game="true">
+    <Sprite name="background" texture="magiland/background.png" x="0" y="0" steps="1"/>
+    <Sprite name="arbre" texture="magiland/arbre1.png" x="1222" y="0" steps="1"/>
+    <Sprite name="branche" texture="magiland/branche.png" x="1120" y="400"  steps="1" active="false"/>
+    <Sprite name="feu" texture="magiland/feuEteint.png" x="120" y="200"  steps="1"/>
+    <Sprite name="feuille" texture="magiland/feuille.png" x="880" y="1360"  steps="1"/>
+    <Sprite name="caillou" texture="magiland/silex.png" x="800" y="800"  steps="1"/>
+    <Sprite name="oiseau" texture="magiland/oiseau1.png" x="140" y="1356"  steps="1"/>
+    <Sprite name="theEnd" texture="magiland/theEnd.png" x="400" y="-1600"  steps="1"/>
+    <Sprite name="created" texture="magiland/created.png" x="500" y="-1600"  steps="1"/>
+
+    <Event id="1" type="PlayBGMEvent" additionalData="magiland/ambiance.ogg" trigger="auto" repeatable="false"/>
+    <Event id="2" type="SetActiveEvent" additionalData="branche;true" trigger="onClick" owner="arbre" repeatable="false"/>
+    <Event id="2.0.1" type="ChangeSpriteImageEvent" additionalData="arbre;magiland/arbre2.png;1" repeatable="false" trigger="auto">
+        <Condition type="EventHasRunCondition" additionalData="2"/>
+    </Event>
+    <Event id="2.1" type="PlaySoundEffectEvent" additionalData="magiland/chest.ogg;2f" repeatable="false" trigger="auto">
+        <Condition type="EventHasRunCondition" additionalData="2"/>
+    </Event>
+    <Event id="4" type="ChangeSpriteImageEvent" additionalData="feu;magiland/feu.png;1" trigger="onClick" owner="feu" repeatable="false">
+        <Condition type="ItemHeldCondition" additionalData="caillou"/>
+    </Event>
+    <Event id="4.1" type="PlaySoundEffectEvent" additionalData="magiland/fire.ogg;0.5f"  trigger="auto" repeatable="false">
+        <Condition type="EventHasRunCondition" additionalData="4"/>
+        <Condition type="EventHasNotRunCondition" additionalData="5"/>
+    </Event>
+    <Event id="5" type="SpriteDisappearsEvent" additionalData="caillou" trigger="auto" repeatable="false">
+        <Condition type="EventHasRunCondition" additionalData="4.1"/>
+    </Event>
+    <Event id="5.1" type="ChangeSpriteImageEvent" additionalData="branche;magiland/charbon.png;1" trigger="onClick" owner="feu" repeatable="false">
+        <Condition type="EventHasRunCondition" additionalData="4"/>
+        <Condition type="ItemHeldCondition" additionalData="branche"/>
+    </Event>
+    <Event id="5.2" type="ChangeSpriteImageEvent" additionalData="feuille;magiland/feuilleEcrite.png;1" trigger="onClick" owner="feuille" repeatable="false">
+        <Condition type="EventHasRunCondition" additionalData="5.1"/>
+        <Condition type="ItemHeldCondition" additionalData="branche"/>
+    </Event>
+    <Event id="5.4" type="SpriteDisappearsEvent" additionalData="branche" trigger="auto" repeatable="false">
+        <Condition type="EventHasRunCondition" additionalData="5.2"/>
+    </Event>
+    <Event id="5.3" type="ItemAddedEvent" additionalData="feuille" trigger="onClick" owner="feuille"/>
+    <Event id="6" type="ItemAddedEvent" additionalData="caillou" trigger="onClick" owner="caillou"/>
+    <Event id="6" type="ItemAddedEvent" additionalData="branche" trigger="onClick" owner="branche"/>
+    <Event id="7.1" type="SpriteDisappearsEvent" additionalData="feuille" trigger="onClick" owner="oiseau" repeatable="false">
+        <Condition type="EventHasRunCondition" additionalData="5.2"/>
+        <Condition type="ItemHeldCondition" additionalData="feuille"/>
+    </Event>
+    <Event id="7.2" type="ChangeSpriteImageEvent" additionalData="oiseau;magiland/oiseau2.png;3" trigger="auto" repeatable="false">
+        <Condition type="EventHasRunCondition" additionalData="7.1"/>
+    </Event>
+    <Event id="7.3" type="MoveEvent" additionalData="oiseau;840f;2050f;160f;false" trigger="auto" repeatable="false">
+        <Condition type="EventHasRunCondition" additionalData="7.2"/>
+    </Event>
+    <Event id="7.5" type="PlaySoundEffectEvent" additionalData="magiland/crow.ogg;0.5f" trigger="onClick" owner="oiseau" repeatable="true"/>
+    <Event id="8.1" type="FadeOutEvent" additionalData="*;0.004f" trigger="auto" repeatable="false">
+        <Condition type="EventHasRunCondition" additionalData="7.3"/>
+    </Event>
+    <Event id="8.2" type="SetPositionEvent" additionalData="theEnd;114f;114f" trigger="auto" repeatable="false">
+        <Condition type="EventHasRunCondition" additionalData="8.1"/>
+    </Event>
+    <Event id="8.3" type="FadeInEvent" additionalData="theEnd;0.004f" trigger="auto" repeatable="false">
+        <Condition type="EventHasRunCondition" additionalData="8.2"/>
+    </Event>
+    <Event id="8.4" type="WaitEvent" additionalData="300" trigger="auto" repeatable="false">
+        <Condition type="EventHasRunCondition" additionalData="8.3"/>
+    </Event>
+    <Event id="8.5" type="FadeOutEvent" additionalData="theEnd;0.004f" trigger="auto" repeatable="false">
+        <Condition type="EventHasRunCondition" additionalData="8.4"/>
+    </Event>
+    <Event id="9.1" type="MoveEvent" additionalData="created;500f;1700f;70f;false" trigger="auto" repeatable="false">
+        <Condition type="EventHasRunCondition" additionalData="8.5"/>
+    </Event>
+    <Event id="9.1.2" type="FadeInEvent" additionalData="created;0.004f" trigger="auto" repeatable="false">
+        <Condition type="EventHasRunCondition" additionalData="8.5"/>
+    </Event>
+    <Event id="9.4" type="TransitionEvent" additionalData="magiland_menu" trigger="auto" repeatable="false">
+        <Condition type="EventHasRunCondition" additionalData="9.1"/>
+    </Event>
+</Tableau>
