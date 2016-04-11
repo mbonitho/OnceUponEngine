@@ -8,7 +8,7 @@ import java.io.File;
 import fr.boniespadon.onceuponengine.helper.SaveManager;
 
 /**
- * UNTESTED - Loads the onceuponengine from the save file
+ * UNTESTED - Loads the game from the save file
  *
  * @see SaveManager#saveFileName
  *
@@ -32,7 +32,7 @@ public class LoadGameEvent extends Event {
     }
 
     /**
-     * Loads the onceuponengine from the save file
+     * Loads the game from the save file
      *
      * @see SaveManager#saveFileName
      *

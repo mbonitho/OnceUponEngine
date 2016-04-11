@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <Tableau name="menu" game="false">
     <Sprite name="background" texture="magiland/background.png" opacity="0f" x="0" y="0" steps="1"/>
-    <Sprite name="btnNewGame" texture="magiland/play.png" x="1720" y="400" opacity="0f" steps="1"/>
-    <Sprite name="btnExit" texture="magiland/exit.png" x="1720" y="100" opacity="0f" steps="1"/>
-    <Sprite name="title" texture="magiland/titreJeu.png" opacity="0f" x="114" y="600" steps="1"/>
+    <Sprite name="btnNewGame" texture="magiland/play.png" x="450" y="400" opacity="0f" steps="1"/>
+    <Sprite name="btnExit" texture="magiland/exit.png" x="1053" y="400" opacity="0f" steps="1"/>
+    <Sprite name="title" texture="magiland/titreJeu.png" opacity="0f" x="275" y="600" steps="1"/>
 
     <Event id="1" type="FadeInEvent" additionalData="*;0.004f" trigger="auto"/>
     <Event id="1.1" type="PlayBGMEvent" additionalData="magiland/title.ogg" trigger="auto" repeatable="false"/>

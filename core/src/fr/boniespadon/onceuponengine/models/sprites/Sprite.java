@@ -149,6 +149,7 @@ public class Sprite {
      * @see Animation
      *
      * @param deltaTime
+     *        Game time between two frames
      */
     public void update(float deltaTime)
     {
@@ -279,6 +280,7 @@ public class Sprite {
      * Sets the bounds of the Sprite
      *
      * @param bounds
+     *        Rectangle corresponding to the clickage zone of this Sprite
      */
     public void setBounds(Rectangle bounds) { this.bounds = bounds; }
 

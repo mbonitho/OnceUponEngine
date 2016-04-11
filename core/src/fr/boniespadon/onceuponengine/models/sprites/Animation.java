@@ -89,7 +89,7 @@ public class Animation
 
     /**
      * Returns the currently displayed portion of the Sprite's texture, aka the frame
-     * @return
+     * @return currently displayed portion of the Sprite's texture, aka the frame
      */
     public TextureRegion getFrame() {
         return frames.get(frame);

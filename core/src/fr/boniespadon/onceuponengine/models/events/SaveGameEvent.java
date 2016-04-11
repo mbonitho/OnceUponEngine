@@ -3,7 +3,7 @@ package fr.boniespadon.onceuponengine.models.events;
 import fr.boniespadon.onceuponengine.helper.SaveManager;
 
 /**
- * UNTESTED - Saves the onceuponengine in the save file
+ * UNTESTED - Saves the game in the save file
  *
  * @see SaveManager#saveFileName
  *
@@ -27,7 +27,7 @@ public class SaveGameEvent extends Event {
     }
 
     /**
-     * Saves the onceuponengine in the save file
+     * Saves the game in the save file
      *
      * @see SaveManager#saveFileName
      *

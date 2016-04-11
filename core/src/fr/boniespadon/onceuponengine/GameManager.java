@@ -14,7 +14,7 @@ import fr.boniespadon.onceuponengine.models.Tableau;
 import fr.boniespadon.onceuponengine.models.sprites.Sprite;
 
 /**
- * Manages the onceuponengine (update, render, play music...)
+ * Manages the game (update, render, play music...)
  *
  * @author Mathieu
  *
@@ -54,6 +54,7 @@ public class GameManager {
      * Method called at each frame : Updates every sprite on the screen and checks their events
      *
      * @param deltaTime
+     *        Game time between two frames
      */
     public static void update(float deltaTime)
     {
@@ -124,7 +125,13 @@ public class GameManager {
     {
         Texture tex = new Texture("sprites/magiland/heldItem.png");
 
-        sb.draw(tex, Game.WIDTH - tex.getWidth(), Game.HEIGHT - tex.getHeight(), tex.getWidth(), tex.getHeight());
+        float texWidth = tex.getWidth() * Game.RATIO_X;
+        float texHeight = tex.getHeight() * Game.RATIO_Y;
+
+        float posX = Game.WIDTH - texWidth - 30 * Game.RATIO_X;
+        float posY = Game.HEIGHT - texHeight - 30 * Game.RATIO_X;
+
+        sb.draw(tex, posX, posY, texWidth, texHeight);
     }
 
     /**

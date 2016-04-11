@@ -99,7 +99,7 @@ public class Game extends ApplicationAdapter {
 		cam.position.set(cam.viewportWidth / 2f, cam.viewportHeight / 2f, 0);
 		cam.update();
 
-		GameManager.setCurrentTableau("magiland");
+		GameManager.setCurrentTableau("magiland_splash");
 	}
 
 	@Override

@@ -49,8 +49,6 @@ public abstract class Event {
 
     /**
      * Conditions for the Event to Trigger
-     *
-     * @see Event#getConditions()
      */
     protected List<Condition> conditions;
 
@@ -140,7 +138,7 @@ public abstract class Event {
      * @see Event.TRIGGERS
      * @see fr.boniespadon.onceuponengine.models.sprites.Sprite
      *
-     * @return
+     * @return Name of the Sprite that needs to be clicked for this Event to run
      */
     public String getOwner() { return this.owner;}
 
